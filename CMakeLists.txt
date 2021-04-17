@@ -46,5 +46,6 @@ endif ()
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/core/header)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
+include_directories(${Boost_INCLUDE_DIR})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
