@@ -1,6 +1,8 @@
 #ifndef PXPHYSICS_COLLISIONUTIL_HPP
 #define PXPHYSICS_COLLISIONUTIL_HPP
 
+#include <cmath>
+
 #include "px/physics/geometry/Pos2D.hpp"
 #include "px/physics/geometry/Line2D.hpp"
 #include "px/physics/geometry/Circle2D.hpp"

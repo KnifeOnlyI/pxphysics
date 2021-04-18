@@ -5,7 +5,7 @@
 
 #include "px/physics/util/CollisionUtil.hpp"
 
-#define TARGET circle1
+#define TARGET line1
 
 void draw(sf::RenderWindow &window, const px::physics::Pos2D &point)
 {
@@ -62,14 +62,14 @@ int main()
     px::physics::Pos2D point1;
     px::physics::Pos2D point2 {400, 300};
 
-    px::physics::Line2D line1 {0, 0, 50, 50};
+    px::physics::Line2D line1 {0, 0, -50, -50};
     px::physics::Line2D line2 {400, 300, 500, 400};
 
     px::physics::Circle2D circle1 {50};
     px::physics::Circle2D circle2 {700, 150, 50};
 
     px::physics::AABB aabb1 {50, 50};
-    px::physics::AABB aabb2 {150, 150, 50, 50};
+    px::physics::AABB aabb2 {150, 150, 200, 200};
 
     while (window.isOpen())
     {
@@ -83,13 +83,13 @@ int main()
             {
 #if false
                 point1.setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-#elif false
-                int lastAX {line1.getA().getX()};
-                int lastAY {line1.getA().getY()};
+#elif true
+                const int lastAX {line1.getA().getX()};
+                const int lastAY {line1.getA().getY()};
 
                 line1.getA().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
                 line1.getB().setRelativeXY(line1.getA().getX() - lastAX, line1.getA().getY() - lastAY);
-#elif true
+#elif false
                 circle1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 #elif false
                 aabb1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
@@ -105,7 +105,7 @@ int main()
             window.clear(sf::Color::Blue);
         }
 
-        if (px::physics::CollisionUtil::check(circle2, TARGET))
+        if (px::physics::CollisionUtil::check(TARGET, circle2))
         {
             window.clear(sf::Color::Yellow);
         }

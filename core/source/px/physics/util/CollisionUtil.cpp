@@ -39,7 +39,7 @@ bool CollisionUtil::check(const physics::Pos2D &a, physics::AABB &b)
 
 bool CollisionUtil::check(physics::Line2D &a, physics::Line2D &b)
 {
-    // FIXME
+    // FIXME: Pas de collision si les mêmes angles (orientations)
 
     const float uA {static_cast<float>((b.getB().getX() - b.getA().getX()) * (a.getA().getY() - b.getA().getY()) -
                                        (b.getB().getY() - b.getA().getY()) * (a.getA().getX() - b.getA().getX())) /
@@ -55,9 +55,7 @@ bool CollisionUtil::check(physics::Line2D &a, physics::Line2D &b)
 
 bool CollisionUtil::check(physics::Line2D &a, physics::Circle2D &b)
 {
-    // FIXME
-
-    bool results {false};
+    bool results {true};
 
     if (!check(a.getA(), b) && !check(a.getB(), b))
     {
@@ -76,7 +74,7 @@ bool CollisionUtil::check(physics::Line2D &a, physics::Circle2D &b)
             ))
         };
 
-        results = check(closestPoint, a) || SpaceUtil::getDist(closestPoint, b.getPos()) <= b.getRadius();
+        results = check(closestPoint, a) && SpaceUtil::getDist(closestPoint, b.getPos()) <= b.getRadius();
     }
 
     return results;
@@ -84,7 +82,7 @@ bool CollisionUtil::check(physics::Line2D &a, physics::Circle2D &b)
 
 bool CollisionUtil::check(physics::Line2D &a, physics::AABB &b)
 {
-    bool results {false};
+    bool results {true};
 
     if (!check(a.getA(), b) || !check(a.getB(), b))
     {
