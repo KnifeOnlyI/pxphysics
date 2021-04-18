@@ -8,7 +8,7 @@ Circle2D::Circle2D(float radius)
 {
 }
 
-Circle2D::Circle2D(float x, float y, float radius)
+Circle2D::Circle2D(int x, int y, float radius)
     : _pos {x, y}, _radius {radius}
 {
 }

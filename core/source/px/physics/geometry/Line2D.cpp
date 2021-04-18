@@ -1,10 +1,9 @@
-#include <cmath>
-
 #include "px/physics/geometry/Line2D.hpp"
+#include "px/physics/util/SpaceUtil.hpp"
 
 namespace px::physics
 {
-Line2D::Line2D(float ax, float ay, float bx, float by)
+Line2D::Line2D(int ax, int ay, int bx, int by)
     : _a {ax, ay}, _b {bx, by}
 {
 }
@@ -19,11 +18,8 @@ Pos2D &Line2D::getB()
     return _b;
 }
 
-double Line2D::getLength() const
+float Line2D::getLength() const
 {
-    return std::sqrt(
-        std::pow(_a.getX() - _b.getX(), 2) +
-        std::pow(_a.getY() - _b.getY(), 2)
-    );
+    return SpaceUtil::getDist(_a, _b);
 }
 }

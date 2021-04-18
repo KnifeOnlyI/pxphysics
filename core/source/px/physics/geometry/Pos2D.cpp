@@ -7,36 +7,36 @@ Pos2D::Pos2D()
 {
 }
 
-Pos2D::Pos2D(float x, float y)
+Pos2D::Pos2D(int x, int y)
     : _x {x}, _y {y}
 {
 }
 
-float Pos2D::getX() const
+int Pos2D::getX() const
 {
     return _x;
 }
 
-float Pos2D::getY() const
+int Pos2D::getY() const
 {
     return _y;
 }
 
-Pos2D &Pos2D::setX(float x)
+Pos2D &Pos2D::setX(int x)
 {
     _x = x;
 
     return *this;
 }
 
-Pos2D &Pos2D::setY(float y)
+Pos2D &Pos2D::setY(int y)
 {
     _y = y;
 
     return *this;
 }
 
-Pos2D &Pos2D::setXY(float x, float y)
+Pos2D &Pos2D::setXY(int x, int y)
 {
     _x = x;
     _y = y;
@@ -44,21 +44,21 @@ Pos2D &Pos2D::setXY(float x, float y)
     return *this;
 }
 
-Pos2D &Pos2D::setRelativeX(float value)
+Pos2D &Pos2D::setRelativeX(int value)
 {
     _x += value;
 
     return *this;
 }
 
-Pos2D &Pos2D::setRelativeY(float value)
+Pos2D &Pos2D::setRelativeY(int value)
 {
     _y += value;
 
     return *this;
 }
 
-Pos2D &Pos2D::setRelativeXY(float x, float y)
+Pos2D &Pos2D::setRelativeXY(int x, int y)
 {
     _x += x;
     _y += y;

@@ -20,7 +20,7 @@ public:
      * \param w The width
      * \param h The height
      */
-    AABB(float w, float h);
+    AABB(int w, int h);
 
     /**
      * Constructor
@@ -30,7 +30,7 @@ public:
      * \param w The width
      * \param h The height
      */
-    AABB(float x, float y, float w, float h);
+    AABB(int x, int y, int w, int h);
 
     /**
      * Get the top-left corner position
@@ -44,14 +44,14 @@ public:
      *
      * \return The width
      */
-    [[nodiscard]] float getW() const;
+    [[nodiscard]] int getW() const;
 
     /**
      * Get the height
      *
      * \return The height
      */
-    [[nodiscard]] float getH() const;
+    [[nodiscard]] int getH() const;
 
     /**
      * Set the width
@@ -60,7 +60,7 @@ public:
      *
      * \return this
      */
-    AABB &setW(float w);
+    AABB &setW(int w);
 
     /**
      * Set the height
@@ -69,7 +69,7 @@ public:
      *
      * \return this
      */
-    AABB &setH(float h);
+    AABB &setH(int h);
 
 private:
 
@@ -77,10 +77,10 @@ private:
     Pos2D _pos;
 
     /** \var The width */
-    float _w;
+    int _w;
 
     /** \var The height */
-    float _h;
+    int _h;
 };
 }
 

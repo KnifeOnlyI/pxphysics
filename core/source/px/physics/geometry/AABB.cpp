@@ -3,12 +3,12 @@
 
 namespace px::physics
 {
-AABB::AABB(float w, float h)
+AABB::AABB(int w, int h)
     : _pos {0, 0}, _w {w}, _h {h}
 {
 }
 
-AABB::AABB(float x, float y, float w, float h)
+AABB::AABB(int x, int y, int w, int h)
     : _pos {x, y}, _w {w}, _h {h}
 {
 }
@@ -18,17 +18,17 @@ Pos2D &AABB::getPos()
     return _pos;
 }
 
-float AABB::getW() const
+int AABB::getW() const
 {
     return _w;
 }
 
-float AABB::getH() const
+int AABB::getH() const
 {
     return _h;
 }
 
-AABB &AABB::setW(float w)
+AABB &AABB::setW(int w)
 {
     if (w <= 0)
     {
@@ -40,7 +40,7 @@ AABB &AABB::setW(float w)
     return *this;
 }
 
-AABB &AABB::setH(float h)
+AABB &AABB::setH(int h)
 {
     if (h <= 0)
     {

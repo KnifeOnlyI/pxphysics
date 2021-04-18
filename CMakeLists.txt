@@ -23,7 +23,13 @@ file(
     ${CMAKE_CURRENT_LIST_DIR}/core/header/*.inl
 )
 
+include_directories(${CMAKE_CURRENT_LIST_DIR}/core/header)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
+include_directories(${Boost_INCLUDE_DIR})
+
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
+
     file(
         GLOB_RECURSE
         SOURCES_TEST
@@ -40,12 +46,10 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     )
 
     add_executable(${PROJECT_NAME} ${SOURCES} ${SOURCES_TEST} ${HEADERS} ${HEADERS_TEST})
+
+    target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics)
 else ()
     add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
 endif ()
-
-include_directories(${CMAKE_CURRENT_LIST_DIR}/core/header)
-include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
-include_directories(${Boost_INCLUDE_DIR})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})

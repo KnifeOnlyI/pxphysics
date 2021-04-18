@@ -22,7 +22,7 @@ public:
      * \param bx The B X position
      * \param by The B Y position
      */
-    Line2D(float ax, float ay, float bx, float by);
+    Line2D(int ax, int ay, int bx, int by);
 
     /**
      * Get the A position
@@ -43,7 +43,7 @@ public:
      *
      * \return The length
      */
-    [[nodiscard]] double getLength() const;
+    [[nodiscard]] float getLength() const;
 
 private:
 

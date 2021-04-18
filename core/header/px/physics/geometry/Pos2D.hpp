@@ -23,21 +23,21 @@ public:
      * \param x The X position
      * \param y The Y position
      */
-    Pos2D(float x, float y);
+    Pos2D(int x, int y);
 
     /**
      * Get the X position
      *
      * \return The X position
      */
-    [[nodiscard]] float getX() const;
+    [[nodiscard]] int getX() const;
 
     /**
      * Get the Y position
      *
      * \return The Y position
      */
-    [[nodiscard]] float getY() const;
+    [[nodiscard]] int getY() const;
 
     /**
      * Set the X position
@@ -46,7 +46,7 @@ public:
      *
      * \return this
      */
-    Pos2D &setX(float x);
+    Pos2D &setX(int x);
 
     /**
      * Set the X position
@@ -55,7 +55,7 @@ public:
      *
      * \return this
      */
-    Pos2D &setY(float y);
+    Pos2D &setY(int y);
 
     /**
      * Set the X and Y position
@@ -65,7 +65,7 @@ public:
      *
      * \return this
      */
-    Pos2D &setXY(float x, float y);
+    Pos2D &setXY(int x, int y);
 
     /**
      * Set the X relative position
@@ -74,7 +74,7 @@ public:
      *
      * \return this
      */
-    Pos2D &setRelativeX(float value);
+    Pos2D &setRelativeX(int value);
 
     /**
      * Set the Y relative position
@@ -83,7 +83,7 @@ public:
      *
      * \return this
      */
-    Pos2D &setRelativeY(float value);
+    Pos2D &setRelativeY(int value);
 
     /**
      *  Set the X and Y relative position
@@ -93,15 +93,15 @@ public:
      *
      * \return this
      */
-    Pos2D &setRelativeXY(float x, float y);
+    Pos2D &setRelativeXY(int x, int y);
 
 private:
 
     /** \var The X position */
-    float _x;
+    int _x;
 
     /** \var The X position */
-    float _y;
+    int _y;
 };
 }
 

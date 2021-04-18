@@ -28,7 +28,7 @@ public:
      * \param y The Y position
      * \param radius The radius
      */
-    Circle2D(float x, float y, float radius);
+    Circle2D(int x, int y, float radius);
 
     /**
      * Get the position
