@@ -136,7 +136,7 @@ bool CollisionUtil::check(physics::AABB &a, physics::AABB &b)
 {
     return (a.getPos().getX() + a.getW() >= b.getPos().getX() &&
             a.getPos().getX() <= b.getPos().getX() + b.getW() &&
-            a.getPos().getY() + a.getPos().getY() >= b.getPos().getY() &&
+            a.getPos().getY() + a.getH() >= b.getPos().getY() &&
             a.getPos().getY() <= b.getPos().getY() + b.getH());
 }
 }

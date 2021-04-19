@@ -2,10 +2,11 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Window.hpp>
+#include <iostream>
 
 #include "px/physics/util/CollisionUtil.hpp"
 
-#define TARGET line1
+#define TARGET point1
 
 void draw(sf::RenderWindow &window, const px::physics::Pos2D &point)
 {
@@ -60,7 +61,7 @@ int main()
     sf::Event event {};
 
     px::physics::Pos2D point1;
-    px::physics::Pos2D point2 {400, 300};
+    px::physics::Pos2D point2 {50, 50};
 
     px::physics::Line2D line1 {0, 0, -50, -50};
     px::physics::Line2D line2 {400, 300, 500, 400};
@@ -81,9 +82,9 @@ int main()
             }
             else if (event.type == sf::Event::MouseMoved)
             {
-#if false
+#if true
                 point1.setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-#elif true
+#elif false
                 const int lastAX {line1.getA().getX()};
                 const int lastAY {line1.getA().getY()};
 
@@ -93,14 +94,22 @@ int main()
                 circle1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 #elif false
                 aabb1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
-#endif
 
+                std::cout << "======================================================================================\n";
+                std::cout << "AABB1 {X = " << aabb1.getPos().getX() << ", Y = " << aabb1.getPos().getY() << ", W = " << aabb1.getW() << ", H = " << aabb1.getH() << '\n';
+                std::cout << "AABB2 {X = " << aabb2.getPos().getX() << ", Y = " << aabb2.getPos().getY() << ", W = " << aabb2.getW() << ", H = " << aabb2.getH() << '\n';
+#endif
             }
         }
 
         window.clear();
 
-        if (px::physics::CollisionUtil::check(line2, TARGET))
+        if (px::physics::CollisionUtil::check(TARGET, point2))
+        {
+            window.clear(sf::Color::Cyan);
+        }
+
+        if (px::physics::CollisionUtil::check(TARGET, line2))
         {
             window.clear(sf::Color::Blue);
         }
