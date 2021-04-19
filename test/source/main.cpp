@@ -6,7 +6,7 @@
 
 #include "px/physics/util/CollisionUtil.hpp"
 
-#define TARGET point1
+#define TARGET circle1
 
 void draw(sf::RenderWindow &window, const px::physics::Pos2D &point)
 {
@@ -82,7 +82,7 @@ int main()
             }
             else if (event.type == sf::Event::MouseMoved)
             {
-#if true
+#if false
                 point1.setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 #elif false
                 const int lastAX {line1.getA().getX()};
@@ -90,7 +90,7 @@ int main()
 
                 line1.getA().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
                 line1.getB().setRelativeXY(line1.getA().getX() - lastAX, line1.getA().getY() - lastAY);
-#elif false
+#elif true
                 circle1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
 #elif false
                 aabb1.getPos().setXY(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
@@ -104,12 +104,12 @@ int main()
 
         window.clear();
 
-        if (px::physics::CollisionUtil::check(TARGET, point2))
+        if (px::physics::CollisionUtil::check(point2, TARGET))
         {
             window.clear(sf::Color::Cyan);
         }
 
-        if (px::physics::CollisionUtil::check(TARGET, line2))
+        if (px::physics::CollisionUtil::check(line2, TARGET))
         {
             window.clear(sf::Color::Blue);
         }

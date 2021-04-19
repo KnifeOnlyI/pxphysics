@@ -127,9 +127,7 @@ bool CollisionUtil::check(physics::Circle2D &a, physics::AABB &b)
         testY = b.getPos().getY() + b.getH();
     }
 
-    Pos2D clotest {testX, testY};
-
-    return SpaceUtil::getDist(a.getPos(), clotest) <= a.getRadius();
+    return SpaceUtil::getDist(a.getPos(), Pos2D {testX, testY}) <= a.getRadius();
 }
 
 bool CollisionUtil::check(physics::AABB &a, physics::AABB &b)
